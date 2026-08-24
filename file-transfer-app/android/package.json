@@ -1,0 +1,22 @@
+{
+  "name": "file-transfer-apk",
+  "version": "1.0.0",
+  "description": "نقل الملفات P2P - أندرويد",
+  "scripts": {
+    "build": "cordova build android",
+    "build-release": "cordova build android --release -- --keystore=keystore.jks --storePassword=password --alias=alias --password=password"
+  },
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^12.0.1"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-android-permissions": {}
+    }
+  }
+}

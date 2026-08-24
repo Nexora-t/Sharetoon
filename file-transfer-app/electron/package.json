@@ -1,0 +1,29 @@
+{
+  "name": "file-transfer-exe",
+  "version": "1.0.0",
+  "description": "نقل الملفات P2P - ويندوز",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.yourcompany.filetransfer",
+    "productName": "ناقل الملفات",
+    "directories": {
+      "output": "dist-exe"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}

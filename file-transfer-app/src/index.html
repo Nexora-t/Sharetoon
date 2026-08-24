@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ناقل الملفات - P2P</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>📤 ناقل الملفات</h1>
+            <div class="badge" id="platformBadge">🔄 جاري التحميل...</div>
+        </header>
+
+        <!-- اختيار الوضع -->
+        <div class="mode-tabs">
+            <button class="tab active" data-mode="sender" id="senderTab">📤 مرسل</button>
+            <button class="tab" data-mode="receiver" id="receiverTab">📥 مستقبل</button>
+        </div>
+
+        <!-- رمز الغرفة -->
+        <div class="room-section">
+            <div class="room-display">
+                <label>🔑 رمز الغرفة</label>
+                <div class="code" id="roomCode">------</div>
+                <button class="btn-sm" id="copyBtn">📋 نسخ</button>
+            </div>
+            
+            <div class="room-join">
+                <input type="text" id="joinInput" placeholder="أدخل رمز الغرفة" maxlength="6" class="input">
+                <button class="btn btn-primary" id="joinBtn">اتصال</button>
+            </div>
+        </div>
+
+        <!-- حالة الاتصال -->
+        <div class="status-bar">
+            <span class="dot" id="statusDot"></span>
+            <span id="statusText">غير متصل</span>
+        </div>
+
+        <!-- منطقة الملفات -->
+        <div class="file-zone" id="fileZone">
+            <div class="drop-area" id="dropArea">
+                <span class="icon">📁</span>
+                <p>اسحب الملفات هنا أو اضغط للاختيار</p>
+                <input type="file" id="fileInput" multiple>
+            </div>
+            <div id="fileList" class="file-list"></div>
+        </div>
+
+        <!-- أزرار -->
+        <div class="actions">
+            <button class="btn btn-success" id="sendBtn" disabled>📤 إرسال</button>
+            <button class="btn btn-danger" id="clearBtn">🗑️ مسح</button>
+        </div>
+
+        <!-- التقدم -->
+        <div class="progress-wrap">
+            <div class="progress-bar" id="progressBar"></div>
+            <span class="progress-text" id="progressText">0%</span>
+        </div>
+
+        <!-- الملفات المستلمة -->
+        <div class="received-section" id="receivedSection">
+            <h3>📥 الملفات المستلمة</h3>
+            <div id="receivedList"></div>
+        </div>
+
+        <!-- رسائل -->
+        <div class="message" id="message">جاهز للعمل</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6C63FF;
+    --primary-dark: #5A52D5;
+    --success: #4CAF50;
+    --danger: #F44336;
+    --bg: #F0F2F5;
+    --card: #FFFFFF;
+    --text: #1A1A2E;
+    --text-light: #6B7280;
+    --shadow: 0 8px 30px rgba(0,0,0,0.12);
+    --radius: 14px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+}
+
+#app {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 98vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow);
+}
+
+/* الرأس */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    background: linear-gradient(135deg, var(--primary), #A855F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge {
+    background: var(--primary);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    -webkit-text-fill-color: white;
+}
+
+/* التبويبات */
+.mode-tabs {
+    display: flex;
+    gap: 8px;
+    background: var(--bg);
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab.active {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 2px 12px rgba(108, 99, 255, 0.2);
+}
+
+/* الغرفة */
+.room-section {
+    background: var(--bg);
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.room-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.room-display label {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.code {
+    flex: 1;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-align: center;
+    font-family: monospace;
+    color: var(--primary);
+    border: 2px dashed var(--primary);
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.room-join {
+    display: flex;
+    gap: 10px;
+}
+
+.input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* الحالة */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--bg);
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--danger);
+}
+
+.dot.connected {
+    background: var(--success);
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
+}
+
+/* الملفات */
+.file-zone {
+    margin-bottom: 14px;
+}
+
+.drop-area {
+    border: 3px dashed #E5E7EB;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--bg);
+}
+
+.drop-area:hover {
+    border-color: var(--primary);
+    background: #F5F3FF;
+}
+
+.drop-area.dragover {
+    border-color: var(--primary);
+    background: #EDE9FE;
+    transform: scale(1.02);
+}
+
+.drop-area .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.drop-area p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.drop-area input {
+    display: none;
+}
+
+/* قائمة الملفات */
+.file-list {
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--bg);
+    border-radius: 10px;
+    margin-bottom: 6px;
+    animation: slideIn 0.3s ease;
+}
+
+.file-item .info {
+    flex: 1;
+}
+
+.file-item .name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.file-item .size {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.file-item .remove {
+    background: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* الأزرار */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: var(--primary);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--primary-dark);
+}
+
+.btn-success {
+    background: var(--success);
+}
+
+.btn-success:hover:not(:disabled) {
+    background: #43A047;
+}
+
+.btn-danger {
+    background: var(--danger);
+    flex: 0.4;
+}
+
+/* التقدم */
+.progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #E5E7EB;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar .fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), #A855F7);
+    border-radius: 4px;
+    transition: width 0.3s;
+    width: 0%;
+}
+
+.progress-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    min-width: 45px;
+}
+
+/* الملفات المستلمة */
+.received-section {
+    margin-top: 14px;
+}
+
+.received-section h3 {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+#receivedList {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.received-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #F0FDF4;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    border-right: 4px solid var(--success);
+    animation: slideIn 0.3s ease;
+}
+
+.received-item .download {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* الرسائل */
+.message {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 12px;
+    background: var(--bg);
+    border-radius: 10px;
+}
+
+/* تحريك */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* التمرير */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* استجابة */
+@media (max-width: 400px) {
+    #app { padding: 16px; }
+    h1 { font-size: 20px; }
+    .code { font-size: 18px; }
+  }
